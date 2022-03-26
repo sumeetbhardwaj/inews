@@ -5,7 +5,7 @@ const ejs = require('ejs');
 const { APP_PORT, DB_HOST, SECRET_KEY } = require("./config")
 const { Router }= require("./routes"); 
  require("./database");
-
+ const cookieParser = require("cookie-parser")
  
 const app = express();
 
@@ -14,9 +14,9 @@ const session = require("express-session");
 const flash = require('express-flash');
 const MongoStore = require("connect-mongo")
 
-app.use(express.urlencoded({extended:false}))
-app.use(express.json())
-
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+app.use(cookieParser());
 
 // session config
 app.use(session({
