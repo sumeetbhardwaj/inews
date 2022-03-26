@@ -1,22 +1,33 @@
 const express =require("express");
-const route = express.Router();
-const { usersController, adminController,frontController } = require("../app/Controllers");
+const Router = express.Router();
+const { usersController, adminController,frontController, postController, categoryController } = require("../app/Controllers");
 const { auth, admin }  = require("../app/Middleware/auth")
 
-route.get('/', frontController.home);
+Router.get('/', frontController.home);
+// deshbord 
+Router.get('/deshboard', auth, admin, adminController.deshboard );
+// posts
+Router.get("/admin/posts", auth, admin, postController.posts)
+Router.get("/admin/add-post", auth, admin, postController.addPost)
+// categories 
+Router.get("/admin/categories", auth, admin, categoryController.categories)
+Router.get("/admin/add-category", auth, admin, categoryController.addCategory)
+// register
+Router.get('/register', usersController.register);
+Router.post('/register', usersController.register);
+// login
+Router.get('/login', usersController.login);
+Router.post('/login', usersController.login);
+//logout
+Router.get('/logout', auth, usersController.logout);
+//users
+Router.get("/users", auth, admin, usersController.users)
+Router.get("/delete-user/:_id", auth, admin, usersController.deleteUser)
 
-route.get('/deshboard', auth, admin, adminController.deshboard );
+Router.get('/about', auth, frontController.about);
 
-route.get('/register', usersController.register);
-route.post('/register', usersController.register);
-
-route.get('/login', usersController.login);
-route.post('/login', usersController.login);
-
-route.get('/logout', auth, usersController.logout);
-
-route.get('/about', auth, frontController.about);
-route.get('/*',frontController.page404);
+// 404 page
+Router.get('/*',frontController.page404);
 
 
-module.exports = route
+module.exports = Router

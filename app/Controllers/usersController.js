@@ -71,4 +71,29 @@ const logout = async (req, res) => {
         console.log(error)
     }
 }
-module.exports = { register, login, logout }
+
+const users = async (req, res) => {
+    try {
+    var user = req.user;
+    if(user){
+        user = req.user;
+    } else {
+        user = "";
+    }
+        const getAllUsers = await User.find();
+       res.render("users", {"title":"iNews - Users", "allUser": getAllUsers, "user": user});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+const deleteUser = async (req, res) => {
+    try {
+        await User.findByIdAndDelete({_id : req.params._id});
+        res.redirect("/users");
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = { register, login, logout, users, deleteUser }

@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
         type : Number,
         default : 0
     },
+    subscribed: {
+        type : String,
+        default : "Subscribed"
+    },
     tokens : [{
         token : {
             type : String,
