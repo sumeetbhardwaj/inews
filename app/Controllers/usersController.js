@@ -18,8 +18,6 @@ const register = async (req, res) => {
             } else {
                 res.json({"errorMessage":"Email Already exist"});
             }  
-
-
         } else {
             if(!req.cookies.jwt){
                 res.render("register", {"title": "Register"});

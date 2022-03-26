@@ -1,6 +1,12 @@
 
-const home = (req, res) => {
-    res.render("admin/home",{"title":"iNews - Home Page"});
+const deshboard = (req, res) => {
+    var user = req.user;
+    if(user){
+        user = req.user;
+    } else {
+        user = "";
+    }
+    res.render("admin/deshboard",{"title":"iNews - Deshboard", "user": user });
 }
 
-module.exports = { home }
+module.exports = { deshboard }
