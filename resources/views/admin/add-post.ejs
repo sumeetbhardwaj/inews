@@ -1,0 +1,58 @@
+<%- include("../partials/admin/_header.ejs")  %>
+<!-- partial -->
+ <div class="container-fluid page-body-wrapper">
+  <!-- partial:partials/_sidebar.html -->
+  <%- include("../partials/admin/_sidebar.ejs")  %>
+  <!-- partial -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="page-header">
+                                <h3 class="page-title"> All Categories </h3>
+                                <button type="button" class="btn btn-link btn-rounded btn-fw">Add Category</button>
+                                <nav aria-label="breadcrumb">
+                                  <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/deshboard">Deshboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                                  </ol>
+                                </nav>
+                              </div>
+                            <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th> Sr. No </th>
+                                  <th> Category Name </th>
+                                  <th> Total Post</th>
+                                  <th> Status </th>
+                                  <th> Actions </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td> 1. </td>
+                                  <td> Herman Beck </td>
+                                  <td> 50 </td>
+                                  <td> Active </td>
+                                  <td style="display:flex">
+                                    <div class="col-sm-6">
+                                        <a href="#"><i class="mdi mdi-table-edit"></i></a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                       <a href=""><i class="mdi mdi-delete-forever"></i></a> 
+                                    </div>
+                                   </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div> 
+    <!-- content-wrapper ends -->
+    <%- include("../partials/admin/_footer.ejs")  %>

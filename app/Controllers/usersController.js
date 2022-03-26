@@ -74,14 +74,8 @@ const logout = async (req, res) => {
 
 const users = async (req, res) => {
     try {
-    var user = req.user;
-    if(user){
-        user = req.user;
-    } else {
-        user = "";
-    }
-        const getAllUsers = await User.find();
-       res.render("users", {"title":"iNews - Users", "allUser": getAllUsers, "user": user});
+    const getAllUsers = await User.find();
+       res.render("users", {"title":"iNews - Users", "allUser": getAllUsers, "user": req.user});
     } catch (error) {
         console.log(error);
     }

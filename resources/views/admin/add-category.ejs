@@ -1,0 +1,33 @@
+<%- include("../partials/admin/_header.ejs")  %>
+<!-- partial -->
+ <div class="container-fluid page-body-wrapper">
+  <!-- partial:partials/_sidebar.html -->
+  <%- include("../partials/admin/_sidebar.ejs")  %>
+  <!-- partial -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-2 grid-margin stretch-card"></div>
+                <div class="col-md-8 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Add Category </h4>
+                        <form class="forms-sample addCategoryForm">
+                            <span class="successMessage"></span>
+                          <div class="form-group">
+                            <label for="exampleInputUsername1"></label>
+                            <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter Category Name">
+                            <span class="error categoryError"></span>
+                          </div>
+                          <button type="submit" id="addCategory" class="btn btn-gradient-primary me-2">Save</button>
+                          <button class="btn btn-light">Cancel</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+   </div> 
+    <!-- content-wrapper ends -->
+    <%- include("../partials/admin/_footer.ejs")  %>

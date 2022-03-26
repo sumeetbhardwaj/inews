@@ -12,6 +12,11 @@ Router.get("/admin/add-post", auth, admin, postController.addPost)
 // categories 
 Router.get("/admin/categories", auth, admin, categoryController.categories)
 Router.get("/admin/add-category", auth, admin, categoryController.addCategory)
+Router.post("/admin/add-category", auth, admin, categoryController.addCategory)
+Router.get("/admin/update-category/:_id", auth, admin, categoryController.updateCategory)
+Router.post("/admin/update-category", auth, admin, categoryController.updateCategory)
+Router.get("/admin/delete-category/:_id", auth, admin, categoryController.deleteCategory)
+
 // register
 Router.get('/register', usersController.register);
 Router.post('/register', usersController.register);

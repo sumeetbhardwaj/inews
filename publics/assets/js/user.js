@@ -1,3 +1,4 @@
+//users scripts start
 jQuery(document).on("click", "#userSign", function(e){
     e.preventDefault();
     jQuery(".error").html("");
@@ -73,7 +74,60 @@ jQuery(document).on("click", "#userLogin", function(e){
             }
         });
     }
+})
+//users scripts end
+//category scripts start
+jQuery(document).on("click", "#addCategory", function(e){
+    e.preventDefault();
+    jQuery(".error").html("");
+    var categoryName = jQuery("#categoryName").val();
+    if(categoryName == "") {
+        jQuery(".categoryError").html("Please Enter Category Name");
+    } else {
+        jQuery.post("/admin/add-category",
+        {
+           name: categoryName
+        },
+       function (data, status) {
+           if(data.errorMessage) {
+               jQuery(".categoryError").html(data.errorMessage);
+           } else {
+              jQuery(".successMessage").html(data.successMessage);
+                jQuery(".addCategoryForm")[0].reset();
+                setTimeout( () => {
+                    window.location.href = "/admin/categories"
+                },2000);
+           }
+       });
+    }
+})
 
+jQuery(document).on("click", "#udateCategory", function(e){
+    e.preventDefault();
+    jQuery(".error").html("");
+    var catId = jQuery("#categoryId").val();
+    var categoryName = jQuery("#categoryName").val();
+    if(categoryName == "") {
+        jQuery(".categoryError").html("Please Enter Category Name");
+    } else {
+        jQuery.post("/admin/update-category",
+        {
+            _id: catId, 
+           name: categoryName
+        },
+       function (data, status) {
+           if(data.errorMessage) {
+               jQuery(".categoryError").html(data.errorMessage);
+           } else {
+              jQuery(".successMessage").html(data.successMessage);
+                jQuery(".addCategoryForm")[0].reset();
+                setTimeout( () => {
+                    window.location.href = "/admin/categories"
+                },2000);
+           }
+       });
+    }
 
 
 })
+//category scripts end
